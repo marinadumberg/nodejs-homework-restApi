@@ -5,6 +5,7 @@ const { contactSchema } = require('../../schemas')
 const { listContacts, getContactById, removeContact, addContact, updateContact } = require('../../model/index')
 
 router.get('/', async (req, res, next) => {
+  console.log(listContacts)
   try {
     const contacts = await listContacts()
 

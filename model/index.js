@@ -4,11 +4,12 @@ const path = require('path')
 const { v4 } = require('uuid')
 
 const contactsPath = path.join(__dirname, './contacts.json')
-
+console.log(contactsPath)
 const getAllContacts = async () => {
   try {
     const data = await fs.readFile(contactsPath)
     const contacts = JSON.parse(data)
+    console.log(contacts)
     return contacts
   } catch (error) {
     console.log(error)
@@ -19,6 +20,7 @@ const getContactById = async (contactId) => {
   try {
     const contacts = await getAllContacts()
     const contact = contacts.find(item => String(item.id) === String(contactId))
+    // console.log(contact)
     if (!contact) {
       return null
     }
