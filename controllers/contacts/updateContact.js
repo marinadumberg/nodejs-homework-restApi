@@ -16,7 +16,7 @@ const updateContact = async (req, res, next) => {
     res.json({
       status: 'success',
       code: 200,
-      message: '✔️ Contact updated',
+      message: 'Contact updated',
       data: { result },
     })
   } catch (error) {

@@ -15,7 +15,7 @@ const deleteContact = async (req, res, next) => {
     res.json({
       status: 'success',
       code: 200,
-      message: ' ✔️ Contact deleted',
+      message: 'Contact deleted',
     })
   } catch (error) {
     next(error)

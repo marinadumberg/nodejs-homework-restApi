@@ -45,3 +45,4 @@ module.exports = {
   joiSchema,
   updateFavoriteSchema,
 }
+// mongodb+srv://marinadumberg:Kapriznaja1203@cluster0.cjr6f.mongodb.net/contacts_base?retryWrites=true&w=majority
