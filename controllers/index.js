@@ -1,6 +1,6 @@
-const contactsController = require('./contacts')
+// const contactsController = require('./contacts')
 
-module.exports = { contactsController }
+// module.exports = { contactsController }
 const getAllContacts = require('./contacts/getAllContacts')
 const getById = require('./contacts/getById')
 const createContact = require('./contacts/createContact')

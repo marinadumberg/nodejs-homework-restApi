@@ -3,6 +3,7 @@ const { Contact } = require('../../models')
 const getAllContacts = async (req, res, next) => {
   try {
     const contacts = await Contact.find({}, '_id name email phone favorite')
+    console.log(contacts)
     res.json({
       status: 'success',
       code: 200,

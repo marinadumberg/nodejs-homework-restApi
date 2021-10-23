@@ -9,7 +9,9 @@ mongoose
     userNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => app.listen(PORT))
+  .then(() => app.listen(PORT, () => {
+    console.log('database connect')
+  }))
   .catch((error) => {
     console.log(error.message)
     process.exit(1)
