@@ -1,4 +1,4 @@
-const { Contact } = require('../../model')
+const { Contact } = require('../../models')
 const updateFavorite = async (req, res, next) => {
   try {
     const { contactId } = req.params

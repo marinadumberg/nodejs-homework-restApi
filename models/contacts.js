@@ -13,13 +13,13 @@ const contactSchema = Schema(
       type: String,
       required: [true, 'email is required'],
       unique: true,
-      match: emailRegexp,
+      // match: emailRegexp,
     },
     phone: {
       type: String,
       required: [true, 'phone is required'],
       unique: true,
-      match: phoneRegexp,
+      // match: phoneRegexp,
     },
     favorite: {
       type: Boolean,
@@ -30,10 +30,10 @@ const contactSchema = Schema(
 )
 
 const joiSchema = Joi.object({
-  name: Joi.string().min(3).max(30),
-  email: Joi.string().pattern(emailRegexp),
-  phone: Joi.string().pattern(phoneRegexp),
-  favorite: Joi.boolean(),
+  name: Joi.string().min(1).required(),
+  email: Joi.string().min(1).required(),
+  phone: Joi.number().min(0.01).required(),
+  favorite: Joi.boolean()
 })
 const updateFavoriteSchema = Joi.object({
   favorite: Joi.boolean().required(),
@@ -45,4 +45,3 @@ module.exports = {
   joiSchema,
   updateFavoriteSchema,
 }
-// mongodb+srv://marinadumberg:Kapriznaja1203@cluster0.cjr6f.mongodb.net/contacts_base?retryWrites=true&w=majority
