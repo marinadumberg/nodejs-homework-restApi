@@ -1,3 +1,7 @@
+// const contactsController = require('../contacts')
+
+// module.exports = { contactsController }
+
 const signup = require('./signup')
 const login = require('./login')
 const logout = require('./logout')

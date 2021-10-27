@@ -1,6 +1,6 @@
 const express = require('express')
 const { auth: ctrl } = require('../../controllers')
-const { joiSchema } = require('../../models/user/user')
+const { joiSchema } = require('../../models/user')
 const { validation, authenticate } = require('../../middlewares')
 
 const router = express.Router()

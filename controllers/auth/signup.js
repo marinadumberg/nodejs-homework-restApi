@@ -5,6 +5,7 @@ const { Conflict } = require('http-errors')
 const signup = async (req, res, next) => {
   try {
     const { email, password, subscription } = req.body
+    console.log(req.body)
     const user = await User.findOne({ email })
 
     if (user) {
@@ -22,7 +23,7 @@ const signup = async (req, res, next) => {
       newUser,
     })
   } catch (error) {
-    res.status(409).json(error)
+    res.status(409).json(error.message)
   }
 }
 module.exports = signup
