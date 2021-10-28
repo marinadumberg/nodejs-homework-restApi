@@ -1,7 +1,7 @@
 
 const { User } = require('../../models')
 const { Conflict } = require('http-errors')
-
+const gravatar = require('gravatar')
 const signup = async (req, res, next) => {
   try {
     const { email, password, subscription } = req.body
@@ -11,8 +11,9 @@ const signup = async (req, res, next) => {
     if (user) {
       throw new Conflict('Already register')
     }
+    const avatarURL = gravatar.url(email)
 
-    const newUser = new User({ email, subscription })
+    const newUser = new User({ email, subscription, avatarURL })
     newUser.setPassword(password)
     await newUser.save()
 
