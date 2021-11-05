@@ -12,4 +12,8 @@ router.get('/logout', authenticate, ctrl.logout)
 router.get('/current', authenticate, ctrl.current)
 router.patch('/', authenticate, ctrl.subscription)
 router.patch('/avatars', authenticate, upload.single('image'), ctrl.avatar,)
+
+router.get('/verify/:verificationToken', ctrl.verify)
+
+router.post('/verify', ctrl.resendingEmail)
 module.exports = router

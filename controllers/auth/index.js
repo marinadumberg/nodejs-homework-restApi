@@ -8,6 +8,8 @@ const logout = require('./logout')
 const current = require('./current')
 const subscription = require('./subscription')
 const avatar = require('./avatar')
+const verify = require('./verify')
+const resendingEmail = require('./resendingEmail')
 module.exports = {
   signup,
   login,
@@ -15,4 +17,6 @@ module.exports = {
   current,
   subscription,
   avatar,
+  verify,
+  resendingEmail,
 }

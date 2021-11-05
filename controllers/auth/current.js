@@ -8,7 +8,7 @@ const current = async (req, res) => {
     if (user) {
       res.status(200).json(
         user
-        //{ email: user.email, subscription: user.subscription }
+        // { email: user.email, subscription: user.subscription }
       )
       return
     }

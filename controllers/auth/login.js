@@ -1,5 +1,6 @@
 const { User } = require('../../models')
 const jwt = require('jsonwebtoken')
+const { BadRequest } = require('http-errors')
 
 const login = async (req, res) => {
   try {
@@ -13,6 +14,10 @@ const login = async (req, res) => {
         code: 400,
         message: 'Email or password is wrong',
       })
+    }
+
+    if (!user.verify) {
+      throw new BadRequest('Email not verify')
     }
     const { _id } = user
     const payload = {
