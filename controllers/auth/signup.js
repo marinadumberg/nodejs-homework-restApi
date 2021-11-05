@@ -1,6 +1,8 @@
-
 const { User } = require('../../models')
 const { Conflict } = require('http-errors')
+const gravatar = require('gravatar')
+const { v4 } = require('uuid')
+const { sendEmail } = require('../../helpers')
 
 const signup = async (req, res, next) => {
   try {
@@ -11,10 +13,25 @@ const signup = async (req, res, next) => {
     if (user) {
       throw new Conflict('Already register')
     }
+    const avatarURL = gravatar.url(email)
+    const verificationToken = v4()
 
-    const newUser = new User({ email, subscription })
+    const newUser = new User({
+      email,
+      subscription,
+      avatarURL,
+      verificationToken,
+    })
     newUser.setPassword(password)
     await newUser.save()
+
+    const emailMessage = {
+      to: newUser.email,
+      subject: 'Account verification',
+      html: `
+        <a href = "http://localhost:3000/users/verify/${verificationToken}" target="_blank">Verify link</a>`,
+    }
+    await sendEmail(emailMessage)
 
     res.status(201).json({
       status: 'success',

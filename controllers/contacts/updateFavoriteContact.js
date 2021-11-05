@@ -3,13 +3,14 @@ const updateFavorite = async (req, res, next) => {
   try {
     const { contactId } = req.params
     const { favorite } = req.body
+    const contact = { contactId, owner: req.user._id }
     if (favorite === undefined) {
       return res.status(400).json({
         message: 'missing field favorite',
       })
     }
     const result = await Contact.findByIdAndUpdate(
-      contactId,
+      contact.contactId,
       { favorite },
       {
         new: true,
